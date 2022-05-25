@@ -14,7 +14,9 @@ def predict(image):
     img = np.array(img)
     img = np.expand_dims(img, axis=0)
     prediction = class_names [np.argmax(model.predict(img))]
-    return prediction
+    a = model.predict(img)
+    confidence = max(a)[np.argmax(a)]*100
+    return prediction, confidence.round(2)
 
 # index route
 @app.route('/', methods=['GET'])
@@ -28,8 +30,8 @@ def prediction():
 
     img = request.files['img']
     img.save('img.jpg')
-    prediction = predict("img.jpg") 
-    return render_template('prediction.html', data=prediction)
+    prediction, confidence = predict("img.jpg") 
+    return render_template('prediction.html', data=[prediction, confidence])
 
 
 
