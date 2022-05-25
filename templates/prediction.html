@@ -9,9 +9,11 @@
 	<center>
 		<h1>Welcome to prediction</h1>
 		<div class="mt-4"/>
-		<h3>Prediction is : {% data[0] %}</h3>
+		<img src={{url_for('static', filename='img.jpg')}} alt="Prediction" width="500" height="500">
 		<div class="mt-4"/>
-		<h3>Confidence is  : {% data[1] %}</h3>
+		<h3>Prediction is : {{ data[0] }}</h3>
+		<div class="mt-4"/>
+		<h3>Confidence is  : {{ data[1] }}</h3>
 
 	</center>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

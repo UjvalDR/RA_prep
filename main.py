@@ -30,9 +30,9 @@ def index():
 @app.route('/prediction', methods=['POST'])
 def prediction():
     img = request.files['img']    #getting the image from the user
-    img.save('img.jpg')     #saving the image
-    prediction, confidence = predict("img.jpg")     #predicting the image from previously defined predict function and sending the image as an argument
-    return render_template('prediction.html', data=[prediction, confidence])   #returning the prediction and confidence to the user
+    img.save('static\img.jpg')     #saving the image
+    prediction, confidence = predict("static\img.jpg")     #predicting the image from previously defined predict function and sending the image as an argument
+    return render_template('prediction.html', data=[prediction, confidence],usr_img = img)   #returning the prediction and confidence to the user
 
 
 
